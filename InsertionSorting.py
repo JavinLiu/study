@@ -1,7 +1,4 @@
 
-from SelectionSorting import swap
-
-
 test = [6, 4, 3, 7, 2, 1, 5]
 
 def insertion(test):
@@ -12,10 +9,11 @@ def insertion(test):
             index依次与前面的元素比较，若小则交换，若大则找到位置，交换即可
     """
     length = len(test)
-    for i in range(length):
-        j = i + 1
-        while (j>0 and test[j] > test[j-1]):
+    for i in range(1, length):
+        j = i 
+        while (j>0 and test[j] < test[j-1]):
             swap(test, j - 1, j)
+            j -= 1
     return test
 
 
@@ -24,4 +22,5 @@ def swap(test, x, y):
     test[x] = test[y]
     test[y] = temp
 
+print(insertion(test))
 
